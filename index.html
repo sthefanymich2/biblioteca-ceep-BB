@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Biblioteca CEEP | Sistema de Gestão</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+
+                <div class="brand-text">
+                    <strong>Biblioteca</strong>
+                    <span>CEEP</span>
+                </div>
+
+            </div>
+
+            <button class="sidebar-close" id="sidebarClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <div class="menu-title">
+            MENU PRINCIPAL
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="#inicio" class="menu-link active">
+                <i class="fa-solid fa-chart-pie"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#catalogo" class="menu-link">
+                <i class="fa-solid fa-book"></i>
+                <span>Livros</span>
+            </a>
+
+            <a href="#emprestimos" class="menu-link">
+                <i class="fa-solid fa-right-left"></i>
+                <span>Empréstimos</span>
+            </a>
+
+            <a href="#alunos" class="menu-link">
+                <i class="fa-solid fa-users"></i>
+                <span>Alunos</span>
+            </a>
+
+            <a href="#alertas" class="menu-link">
+                <i class="fa-solid fa-bell"></i>
+                <span>Alertas</span>
+
+                <span class="menu-badge" id="menuAlertas">
+                    0
+                </span>
+            </a>
+
+        </nav>
+
+
+        <div class="menu-title system-title">
+            SISTEMA
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="#relatorios" class="menu-link">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Relatórios</span>
+            </a>
+
+            <a href="#cadastro" class="menu-link">
+                <i class="fa-solid fa-plus"></i>
+                <span>Cadastrar livro</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <div class="admin-avatar">
+                AD
+            </div>
+
+            <div class="admin-info">
+                <strong>Administrador</strong>
+                <span>Biblioteca CEEP</span>
+            </div>
+
+            <i class="fa-solid fa-ellipsis-vertical admin-more"></i>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         CONTEÚDO PRINCIPAL
+    ========================================== -->
+
+    <div class="main-wrapper">
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <button class="mobile-menu" id="mobileMenu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <div class="breadcrumb">
+
+                <span>Biblioteca CEEP</span>
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+                <strong id="paginaAtual">
+                    Dashboard
+                </strong>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="date-info">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="dataAtual"></span>
+                </div>
+
+                <button class="icon-button notification-button">
+                    <i class="fa-regular fa-bell"></i>
+
+                    <span
+                        class="notification-dot"
+                        id="notificationDot"
+                    ></span>
+                </button>
+
+                <div class="top-profile">
+
+                    <div class="profile-avatar">
+                        AD
+                    </div>
+
+                    <div class="profile-text">
+                        <strong>Administrador</strong>
+                        <span>Bibliotecário</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <main class="content">
+
+            <!-- =================================
+                 DASHBOARD
+            ================================== -->
+
+            <section id="inicio" class="dashboard-section">
+
+                <div class="page-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            VISÃO GERAL DA BIBLIOTECA
+                        </span>
+
+                        <h1>
+                            Dashboard
+                        </h1>
+
+                        <p>
+                            Acompanhe os livros, alunos e empréstimos
+                            da Biblioteca CEEP em um só lugar.
+                        </p>
+                    </div>
+
+                    <button
+                        class="primary-button"
+                        onclick="abrirCadastro()"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Novo livro
+                    </button>
+
+                </div>
+
+
+                <!-- HERO -->
+
+                <div class="hero-card">
+
+                    <div class="hero-content">
+
+                        <span class="hero-small">
+                            BEM-VINDO À
+                        </span>
+
+                        <h2>
+                            Biblioteca CEEP
+                            <br>
+                            de forma inteligente.
+                        </h2>
+
+                        <p>
+                            Organize seu acervo, acompanhe os empréstimos
+                            e facilite o acesso dos alunos ao conhecimento.
+                        </p>
+
+                        <div class="hero-buttons">
+
+                            <button
+                                class="hero-button"
+                                onclick="abrirEmprestimos()"
+                            >
+                                <i class="fa-solid fa-plus"></i>
+                                Novo empréstimo
+                            </button>
+
+                            <button
+                                class="hero-outline-button"
+                                onclick="irParaCatalogo()"
+                            >
+                                Ver catálogo
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                    <div class="hero-decoration">
+
+                        <div class="book-decoration book-one">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+
+                        <div class="book-decoration book-two">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+
+                        <div class="hero-circle"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ESTATÍSTICAS -->
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon purple">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Total de livros</span>
+                            <strong id="totalLivros">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Livros disponíveis</span>
+                            <strong id="livrosDisponiveis">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            <i class="fa-solid fa-book-bookmark"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Livros emprestados</span>
+                            <strong id="livrosEmprestados">0</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon red">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </div>
+
+                        <div class="stat-info">
+                            <span>Em atraso</span>
+                            <strong id="livrosAtrasados">0</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PAINÉIS -->
+
+                <div class="dashboard-grid">
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>
+                                    Empréstimos recentes
+                                </h3>
+
+                                <p>
+                                    Últimas movimentações
+                                </p>
+                            </div>
+
+                            <a href="#emprestimos">
+                                Ver todos
+                            </a>
+
+                        </div>
+
+                        <div id="emprestimosRecentes">
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <i class="fa-solid fa-book-open"></i>
+                                </div>
+
+                                <strong>
+                                    Nenhum empréstimo ainda
+                                </strong>
+
+                                <span>
+                                    Registre o primeiro empréstimo.
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="dashboard-panel">
+
+                        <div class="panel-header">
+
+                            <div>
+                                <h3>
+                                    Livros populares
+                                </h3>
+
+                                <p>
+                                    Mais emprestados
+                                </p>
+                            </div>
+
+                            <i class="fa-solid fa-fire popular-icon"></i>
+
+                        </div>
+
+                        <div id="livrosPopulares">
+
+                            <div class="empty-state">
+                                <div class="empty-icon">
+                                    <i class="fa-solid fa-chart-column"></i>
+                                </div>
+
+                                <strong>
+                                    Sem dados ainda
+                                </strong>
+
+                                <span>
+                                    Os livros mais emprestados aparecerão aqui.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 CATÁLOGO
+            ================================== -->
+
+            <section id="catalogo" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            ACERVO
+                        </span>
+
+                        <h2>
+                            Catálogo de livros
+                        </h2>
+
+                        <p>
+                            Encontre rapidamente os livros disponíveis
+                            na Biblioteca CEEP.
+                        </p>
+                    </div>
+
+                    <button
+                        class="secondary-button"
+                        onclick="abrirCadastro()"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        Cadastrar livro
+                    </button>
+
+                </div>
+
+
+                <div class="filter-box">
+
+                    <div class="search-box">
+
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="text"
+                            id="pesquisa"
+                            placeholder="Pesquisar por título ou autor..."
+                        >
+
+                    </div>
+
+
+                    <div class="select-box">
+
+                        <i class="fa-solid fa-filter"></i>
+
+                        <select id="filtroCategoria">
+
+                            <option value="">
+                                Todas as categorias
+                            </option>
+
+                            <option value="Literatura">
+                                Literatura
+                            </option>
+
+                            <option value="Ciências">
+                                Ciências
+                            </option>
+
+                            <option value="História">
+                                História
+                            </option>
+
+                            <option value="Matemática">
+                                Matemática
+                            </option>
+
+                            <option value="Geografia">
+                                Geografia
+                            </option>
+
+                            <option value="Infantil">
+                                Infantil
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="listaLivros"
+                    class="books-grid"
+                ></div>
+
+            </section>
+
+
+            <!-- =================================
+                 EMPRÉSTIMOS
+            ================================== -->
+
+            <section id="emprestimos" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            MOVIMENTAÇÕES
+                        </span>
+
+                        <h2>
+                            Empréstimos
+                        </h2>
+
+                        <p>
+                            Acompanhe todos os livros emprestados
+                            aos alunos.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="table-card">
+
+                    <div class="table-top">
+
+                        <div>
+                            <h3>
+                                Controle de empréstimos
+                            </h3>
+
+                            <span>
+                                Consulte e gerencie as devoluções.
+                            </span>
+                        </div>
+
+                        <div class="table-counter">
+                            <strong id="contadorEmprestimos">
+                                0
+                            </strong>
+
+                            empréstimos
+                        </div>
+
+                    </div>
+
+
+                    <div class="table-wrapper">
+
+                        <table>
+
+                            <thead>
+
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Turma</th>
+                                    <th>Livro</th>
+                                    <th>Empréstimo</th>
+                                    <th>Devolução</th>
+                                    <th>Status</th>
+                                    <th>Ação</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="tabelaEmprestimos"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 ALERTAS
+            ================================== -->
+
+            <section id="alertas" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            ATENÇÃO
+                        </span>
+
+                        <h2>
+                            Alertas
+                        </h2>
+
+                        <p>
+                            Livros que precisam da sua atenção.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div id="listaAlertas" class="alerts-container"></div>
+
+            </section>
+
+
+            <!-- =================================
+                 ALUNOS
+            ================================== -->
+
+            <section id="alunos" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            COMUNIDADE ESCOLAR
+                        </span>
+
+                        <h2>
+                            Alunos
+                        </h2>
+
+                        <p>
+                            Resumo dos alunos que utilizam a biblioteca.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="student-summary">
+
+                    <div class="student-big-card">
+
+                        <div class="student-card-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </div>
+
+                        <div>
+                            <span>Alunos atendidos</span>
+                            <strong id="totalAlunos">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="student-big-card">
+
+                        <div class="student-card-icon green">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+
+                        <div>
+                            <span>Alunos com empréstimos</span>
+                            <strong id="alunosComEmprestimo">
+                                0
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 RELATÓRIOS
+            ================================== -->
+
+            <section id="relatorios" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            INDICADORES
+                        </span>
+
+                        <h2>
+                            Relatórios
+                        </h2>
+
+                        <p>
+                            Resumo dos principais indicadores da biblioteca.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="report-grid">
+
+                    <div class="report-card">
+                        <i class="fa-solid fa-book"></i>
+
+                        <span>Total do acervo</span>
+
+                        <strong id="relatorioTotal">
+                            0
+                        </strong>
+                    </div>
+
+
+                    <div class="report-card">
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        <span>Disponíveis</span>
+
+                        <strong id="relatorioDisponiveis">
+                            0
+                        </strong>
+                    </div>
+
+
+                    <div class="report-card">
+                        <i class="fa-solid fa-right-left"></i>
+
+                        <span>Em empréstimo</span>
+
+                        <strong id="relatorioEmprestimos">
+                            0
+                        </strong>
+                    </div>
+
+
+                    <div class="report-card danger">
+                        <i class="fa-solid fa-clock"></i>
+
+                        <span>Em atraso</span>
+
+                        <strong id="relatorioAtrasados">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 CADASTRO
+            ================================== -->
+
+            <section id="cadastro" class="content-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <span class="eyebrow">
+                            NOVO REGISTRO
+                        </span>
+
+                        <h2>
+                            Cadastrar livro
+                        </h2>
+
+                        <p>
+                            Adicione um novo livro ao acervo da Biblioteca CEEP.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="form-card">
+
+                    <form id="formLivro">
+
+                        <div class="form-title">
+                            <div class="form-title-icon">
+                                <i class="fa-solid fa-book-medical"></i>
+                            </div>
+
+                            <div>
+                                <h3>
+                                    Informações do livro
+                                </h3>
+
+                                <span>
+                                    Preencha os dados abaixo.
+                                </span>
+                            </div>
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-group">
+
+                                <label for="titulo">
+                                    Título
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-book"></i>
+
+                                    <input
+                                        type="text"
+                                        id="titulo"
+                                        placeholder="Ex: Dom Casmurro"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="autor">
+                                    Autor
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-user-pen"></i>
+
+                                    <input
+                                        type="text"
+                                        id="autor"
+                                        placeholder="Nome do autor"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="categoria">
+                                    Categoria
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-layer-group"></i>
+
+                                    <select
+                                        id="categoria"
+                                        required
+                                    >
+
+                                        <option value="">
+                                            Selecione uma categoria
+                                        </option>
+
+                                        <option value="Literatura">
+                                            Literatura
+                                        </option>
+
+                                        <option value="Ciências">
+                                            Ciências
+                                        </option>
+
+                                        <option value="História">
+                                            História
+                                        </option>
+
+                                        <option value="Matemática">
+                                            Matemática
+                                        </option>
+
+                                        <option value="Geografia">
+                                            Geografia
+                                        </option>
+
+                                        <option value="Infantil">
+                                            Infantil
+                                        </option>
+
+                                    </select>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="ano">
+                                    Ano de publicação
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-regular fa-calendar"></i>
+
+                                    <input
+                                        type="number"
+                                        id="ano"
+                                        min="1000"
+                                        max="2100"
+                                        placeholder="2026"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="localizacao">
+                                    Localização
+                                </label>
+
+                                <div class="input-wrapper">
+                                    <i class="fa-solid fa-location-dot"></i>
+
+                                    <input
+                                        type="text"
+                                        id="localizacao"
+                                        placeholder="Ex: Estante A - Prateleira 2"
+                                        required
+                                    >
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group full">
+
+                                <label for="sinopse">
+                                    Sinopse
+                                </label>
+
+                                <textarea
+                                    id="sinopse"
+                                    placeholder="Digite uma breve descrição do livro..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-actions">
+
+                            <button
+                                type="reset"
+                                class="cancel-button"
+                            >
+                                Limpar
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="primary-button"
+                            >
+                                <i class="fa-solid fa-check"></i>
+                                Cadastrar livro
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <div>
+                <strong>Biblioteca CEEP</strong>
+
+                <span>
+                    Sistema de gestão da biblioteca escolar
+                </span>
+            </div>
+
+            <span>
+                © 2026 CEEP • Todos os direitos reservados
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <!-- =========================================
+         MODAL DE EMPRÉSTIMO
+    ========================================== -->
+
+    <div
+        id="modalEmprestimo"
+        class="modal"
+    >
+
+        <div class="modal-content">
+
+            <button
+                class="modal-close"
+                id="fecharModal"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+
+            <div class="modal-icon">
+                <i class="fa-solid fa-book-open-reader"></i>
+            </div>
+
+
+            <div class="modal-heading">
+
+                <span class="eyebrow">
+                    NOVO EMPRÉSTIMO
+                </span>
+
+                <h2>
+                    Registrar empréstimo
+                </h2>
+
+                <p id="livroSelecionado">
+                    Selecione um livro.
+                </p>
+
+            </div>
+
+
+            <form id="formEmprestimo">
+
+                <input
+                    type="hidden"
+                    id="idLivro"
+                >
+
+
+                <div class="form-group">
+
+                    <label for="nomeAluno">
+                        Nome do aluno
+                    </label>
+
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            id="nomeAluno"
+                            placeholder="Nome completo"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="turmaAluno">
+                        Turma
+                    </label>
+
+                    <div class="input-wrapper">
+                        <i class="fa-solid fa-school"></i>
+
+                        <input
+                            type="text"
+                            id="turmaAluno"
+                            placeholder="Ex: 3º A"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="dataDevolucao">
+                        Data de devolução
+                    </label>
+
+                    <div class="input-wrapper">
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <input
+                            type="date"
+                            id="dataDevolucao"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="primary-button full-button"
+                >
+                    <i class="fa-solid fa-check"></i>
+                    Confirmar empréstimo
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- TOAST -->
+
+    <div
+        id="toast"
+        class="toast"
+    >
+
+        <div class="toast-icon">
+            <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div>
+            <strong id="toastTitle">
+                Sucesso
+            </strong>
+
+            <span id="toastMessage">
+                Operação realizada.
+            </span>
+        </div>
+
+        <button onclick="fecharToast()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
